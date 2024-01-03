@@ -17,55 +17,54 @@
 
 <style>
     * {
-       font-family: 'Roboto';
-    }
-    body {
-        height: 100vh;
-        background: linear-gradient(50deg, black,  #2b2b2b, #444444, #2b3d41 ,#2b2b2b, #444444, black);
-    }
-    .login-form {
-        width: 330px;
-        height: 470px;
-        background: linear-gradient(180deg, rgba(0,106,132, 0.7), rgba(110,110,110, 0.5));
-        border-radius: 2vh;
-        
-    }
-    img[alt="nyanchat"] {
-        position: relative;
-        left: 25%;
-        width: 130px;
-        height: 130px;
-    }
-    .input-field{
-        background: inherit;
-    }
-   
-    .break-line{
-        width: 100%;
-        border: 0.5px solid white;
-    }
-    .submit-button button {
-        width: 100%;
-    }
-    .register-button button {
-        width: 100%;
-    }
-
+   font-family: 'Roboto';
+}
+body {
+    height: 100vh;
+    background: linear-gradient(50deg, black,  #2b2b2b, #444444, #2b3d41 ,#2b2b2b, #444444, black);
+}
+.login-form {
+    width: 330px;
+    height: 470px;
+    background: linear-gradient(180deg, rgba(0,106,132, 0.7), rgba(110,110,110, 0.5));
+    border-radius: 2vh;
     
-    
-.show-modal {
-  width: 60px;
-  height: 60px;
-  background: #303030;
-  border: none;
-  border-radius: 2vh;
-  color: white;
-  transition: 0.1s;
+}
+img[alt="nyanchat"] {
+    position: relative;
+    left: 25%;
+    width: 130px;
+    height: 130px;
+}
+.input-field{
+    background: inherit;
 }
 
-.show-modal:hover {
-  background: gray;
+.break-line{
+    width: 100%;
+    border: 0.5px solid white;
 }
+.submit-button button {
+    width: 100%;
+}
+.register-button button {
+    width: 100%;
+}
+
+    
+ #btn-signup-modal{
+     background: inherit;
+     border: 1px solid white;
+     height: 35px;
+     color: white;
+     border-radius: 1vh;
+     transition: .2s;
+ }   
+ #btn-signup-modal:hover{
+     background: #343434;
+     color: ;
+     border: #343434 solid 1px;
+ }
 
 /* FOR MODAL */
 .modal-box {
@@ -168,7 +167,7 @@
             <div class="mb-5 conts register-button">
                 
                 <span class="show-modal">
-                    <button class="btn btn-secondary">
+                    <button id="btn-signup-modal">
                         Sign-up!
                     </button>
                 </span>
