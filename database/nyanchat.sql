@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 02:44 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jan 06, 2024 at 04:11 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,6 +54,14 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`msg_id`),
+  ADD KEY `users to message table` (`sender_id`) USING BTREE,
+  ADD KEY `user_id to receiver_id` (`receiver_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -64,10 +72,27 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `msg_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `message`
+--
+ALTER TABLE `message`
+  ADD CONSTRAINT `user_id to receiver_id` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `user_id to sender_id` FOREIGN KEY (`sender_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
