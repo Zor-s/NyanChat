@@ -28,7 +28,6 @@ if (!validateUsername($username)) {
 
     $stmt = $database->conn->prepare("INSERT INTO users (username, email, password, user_status) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $username, $email, $password, $userStatus);
-
     $result = $stmt->execute();
 
     if ($result) {
@@ -38,16 +37,16 @@ if (!validateUsername($username)) {
     }
 
 
+
+
+    header('location: ../frontend/dashboard.php');
     // Close prepared statement and database connection
     $stmt->close();
 }
 
 
 
-
-
-
-
+// Functions---------------------------------------------------------------------------------------------
 
 
 
