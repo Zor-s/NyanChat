@@ -2,9 +2,6 @@
 require '../db/database.php';
 
 
-$database = new Database();
-$database->connect();
-
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -26,7 +23,9 @@ if (!validateUsername($username)) {
     $email = validateEmail($email);
     $password = validatePassword($password);
 
-    $stmt = $database->conn->prepare("INSERT INTO users (username, email, password, user_status) VALUES (?, ?, ?, ?)");
+    $connect = DB::connect();
+
+    $stmt = $connect->prepare("INSERT INTO users (username, email, password, user_status) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $username, $email, $password, $userStatus);
     $result = $stmt->execute();
 
@@ -36,12 +35,11 @@ if (!validateUsername($username)) {
         echo "Error: " . $stmt->error;
     }
 
-
-
-
     header('location: ../frontend/dashboard.php');
     // Close prepared statement and database connection
     $stmt->close();
+    $connect->close();
+
 }
 
 
@@ -96,5 +94,5 @@ function validatePassword($password)
     }
 }
 
-$database->conn->close();
+
 ?>
