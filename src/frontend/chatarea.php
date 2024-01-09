@@ -1,4 +1,3 @@
-<!--TEXTAREA =======================================  -->
 <?php 
 require_once '../backend/sessionCheck.php';
 
@@ -39,17 +38,13 @@ if(isset($_GET['receiverId'])) {
     
     <!-- CUSTOME CSS -->
     <link rel="stylesheet" href="textarea.css">
-    
 </head>
 <body>
     <div class="container">
-       
         <div class="top"></div>
-        <!--TEXTAREA -->    
+
         <div class="textarea">
-            
-            <div style="height:15px"></div>
-            <!-- HEADER ================== -->
+            <!-- HEADER -->
             <div class="header mb-2 d-flex align-items-center">
                 <div class="col-2 d-grid justify-content-center">
                     <a href="dashboard.php">
@@ -68,53 +63,49 @@ if(isset($_GET['receiverId'])) {
                     <!-- STATUS (ONLINE/OFFLINE) -->
                     <p class="mb-0" style="color: #00ccff; font-size: .8em"><?php echo $status ?></p>
                 </div>
-                    
             </div>
-            
-            <!-- BODY ========================== -->
+
+            <!-- BODY -->
             <div class="body d-grid justify-content-center">
                 <div class="interface">
                    
-                <!-- USER1 -->
-                <div class="d-flex justify-content-end">
-                    <div class="user1 d-flex justify-content-end align-items-center">
-                        <p class="text-light mt-3">
-                            Hello! Welcome to Nyan Chat. How can I assist you today?
-                        </p>
+                <div class="chat-box">
+                    <!-- <div class="d-flex justify-content-end">
+                        <div class="user1 d-flex justify-content-end align-items-center">
+                            <p class="text-light mt-3">
+                                Hello! Welcome to Nyan Chat. How can I assist you today?
+                            </p>
+                        </div>
                     </div>
+                    
+                    <div class="user2 d-flex justify-content-start align-items-end">
+                        <img src="nyanchat1.jpeg" alt="nyanchat">
+                        &nbsp;
+                        &nbsp;
+                        <p class="text-light mt-3">
+                            Hi! I want some Tea.
+                        </p>
+                    </div>      -->
                 </div>
-                
-                
-                <!-- USER2-->
-                <div class="user2 d-flex justify-content-start align-items-end">
-                    <img src="nyanchat1.jpeg" alt="nyanchat">
-                    &nbsp;
-                    &nbsp;
-                    <p class="text-light mt-3">
-                        Hi! I want some Tea.
-                    </p>
-                </div>     
             </div>
-            
-            <!-- TEXTAREA NA GYUDD FINAL -->
+
+            <!-- TEXTAREA -->
             <form id="form" method="post">
                 <div class="text__msg__area d-flex justify-content-center ">
                     <div class="typetxt d-flex justify-content-between align-content-center">
-                        <textarea class="text-dark mt-3" name="message" id="message" cols="30" rows="1" style="resize: none;" oninput="autoExpand(this)"></textarea>
-
-                        <!-- <button class="mt-3 send-btn">
-                            <i class=" text-light fa-solid fa-paper-plane"></i>
-                        </button> -->
-
+                        <input type="hidden" name="senderId" value="<?php echo $userId ?>">
                         <input type="hidden" name="receiverId" value="<?php echo $receiverId ?>">
-                        <button type="submit" name="send" class="mt-3" id="send">
+                        <textarea class="text-dark mt-3" name="message" id="message" cols="30" rows="1" style="resize: none;" oninput="autoExpand(this)"></textarea>
+                        
+                        <button type="submit" class="mt-3" id="send" name="send" >
                             <i class="text-light fa-solid fa-paper-plane"></i>
                         </button>
                     </div>
                 </div>
             </form>
         </div>
-    </div>
-<script src="js/script.js"></script>
+    </div>    
+
+    <script src="js/script.js"></script>
 </body>
 </html>
