@@ -1,4 +1,8 @@
 <!-- DASHBOARD ========================================================= -->
+<?php 
+require_once '../backend/sessionCheck.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,13 +136,14 @@
                     
                     <div class="col-6 d-grid">
                         <!-- PORFILE NAME-->
-                        <p class="text-light mb-0 fs-4">Nyan Dev</p>
+                        <p class="text-light mb-0 fs-4"><?php echo $username ?></p>
                         <!-- STATUS (ONLINE/OFFLINE) -->
-                        <p class="mb-0" style="color: #00ccff">Active now</p>
+                        <p class="mb-0" style="color: #00ccff"><?php echo $status ?></p>
                     </div>
+
                     <div class="col-3 d-flex justify-content-end">
                         <!-- LOGOUT BUTTON -->
-                        <a href="login.php" onclick="return confirm('LOG OUT ACCOUNT?')">
+                        <a href="../backend/logout.php" onclick="return confirm('LOG OUT ACCOUNT?')">
                             <button class="logout-button d-flex align-items-center" name="logout" >
                                 Logout&nbsp;
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -149,48 +154,27 @@
             </div>
             
             <div class="dash-body d-grid row ">
-                
                 <div class="interface">
-                    
                     <!-- SEARCH BAR -->
                     <div class="searchbar mt-2 d-flex justify-content-center align-items-center">
                           <input type="text" name="searchbar" placeholder="Search an user to start chat"> 
                           &nbsp;<i class="fa-solid fa-magnifying-glass fs-3 text-light"></i>
                     </div>
                     
-                    <!-- USER 1 =========================== -->
-                    <a href="textarea.php">
-                        <div class="users d-flex mt-2 d-flex align-items-center">
-                            <!-- PROFILE PICTURE -->
-                            <div class="col-3 profile-pic">
-                                <img src="nyanchat1.jpeg" alt="nyanchat">
-                            </div>
-                            <!-- PROFILE NAME-->
-                            <div class="col-8">
-                                <p class="fs-5 text-light mb-0">
-                                    Nyan Chat
-                                </p>
-                                <p class="text-light mb-0">
-                                    Sent Message
-                                </p>
-                            </div>
-                            
-                            <!-- ACTIVE STATUS -->
-                            <div class="col-2 d-flex justify-content-center">
-                                <!-- COLOR GREEN IS FOR ONLINE STATUS-->
-                                <i style="color: #00c100" class="fa-solid fa-circle"></i>
-                            </div>
-                            
-                        </div>
-                    </a>
+                    <div class="chats">
+                        <!-- user chats here -->
+                    </div>
+                
                     <!-- USER 2 =============================  -->
-                    <a href="textarea.php">
+                    
+
+                    <!-- <a href="textarea.php">
                         <div class="users d-flex mt-2 d-flex align-items-center">
-                            <!-- PROFILE PICTURE -->
+                            <!-- PROFILE PICTURE 
                             <div class="col-3 profile-pic">
                                 <img src="nyanchat1.jpeg" alt="nyanchat">
                             </div>
-                            <!-- PROFILE NAME-->
+                            <!-- PROFILE NAME
                             <div class="col-8">
                                 <p class="fs-5 text-light mb-0">
                                     Nyan Msg
@@ -200,14 +184,14 @@
                                 </p>
                             </div>
                             
-                            <!-- ACTIVE STATUS -->
+                            <!-- ACTIVE STATUS 
                             <div class="col-2 d-flex justify-content-center">
-                                <!-- DEFAULT COLOR IS FOR OFFLINE STATUS-->
+                                <!-- DEFAULT COLOR IS FOR OFFLINE STATUS
                                 <i class="fa-solid fa-circle"></i>
                             </div>
                             
                         </div>
-                    </a>
+                    </a> -->
                     
                     
                 </div>
@@ -218,6 +202,6 @@
          
     </div>
     
-    
+    <script src="js/script.js"></script>
 </body>
 </html>

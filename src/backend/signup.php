@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../db/database.php';
 
 
@@ -35,21 +36,26 @@ if (!validateUsername($username)) {
         echo "Error: " . $stmt->error;
     }
 
+    //get id from database using username 
+    //! NOTE: username must be unique for every user
+
+    $sql = $connect->prepare('SELECT user_id FROM users WHERE username = ?');
+    $sql->bind_param('s', $username);
+    $sql->execute();
+    $out = $sql->get_result();
+    $row = $out->fetch_assoc();
+
+    $_SESSION['id'] = $row['user_id'];
+    
     header('location: ../frontend/dashboard.php');
     // Close prepared statement and database connection
     $stmt->close();
     $connect->close();
-
 }
 
 
 
 // Functions---------------------------------------------------------------------------------------------
-
-
-
-
-
 
 // Validate and sanitize username
 function validateUsername($username)
@@ -93,6 +99,4 @@ function validatePassword($password)
         return false;
     }
 }
-
-
 ?>
