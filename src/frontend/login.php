@@ -152,7 +152,7 @@
             <img src="nyanchat.png" alt="nyanchat">
 
             <!-- LOGIN FORM -->
-            <form action="">
+            <form action="../backend/login.php" method="post">
 
                 <!-- USERNAME -->
                 <div class="form-floating mb-3 input-field">
