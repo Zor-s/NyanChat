@@ -3,13 +3,14 @@ require 'sessionCheck.php';
 
 $connect = DB::connect();
 
-$sql = "SELECT * FROM users WHERE user_id != '{$userId}'";
+$sql = "SELECT * FROM users WHERE (user_id != '{$userId}') ORDER BY user_status DESC";
+// $sql = "SELECT * FROM users WHERE (user_status = 'Online' AND user_id != '{$userId}')";
 
 if($results = $connect->query($sql)) {
     
     $output = '';
 
-    if($results->num_rows <= 1) {
+    if($results->num_rows <= 0) {
 
         $output = "<div class='mt-3 text-center text-white'>No Active Users</div>";
 
@@ -18,6 +19,8 @@ if($results = $connect->query($sql)) {
             $id = $row['user_id'];
             $username = $row['username'];
             $status = $row['user_status'];
+
+            $color = ($status == 'Online')? '#00c100' : '#808080';
     
             $output .= "<a href='chatarea.php?receiverId={$id}'>
                             <div class='users d-flex mt-3 d-flex align-items-center'>
@@ -35,8 +38,7 @@ if($results = $connect->query($sql)) {
                                 </div>
                                 
                                 <div class='col-2 d-flex justify-content-center'>
-                                    <!-- COLOR GREEN IS FOR ONLINE STATUS-->
-                                    <i style='color:{ ($status == 'Online') ? #00c100 : #808080 }' class='fa-solid fa-circle'></i>
+                                    <i style='color: {$color};' class='fa-solid fa-circle'></i>
                                 </div>
                             </div>
                         </a>";
