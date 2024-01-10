@@ -150,7 +150,6 @@ require_once '../backend/sessionCheck.php';
                             </button>
                         </a>
                     </div>
-                
             </div>
             
             <div class="dash-body d-grid row ">
@@ -164,42 +163,9 @@ require_once '../backend/sessionCheck.php';
                     <div class="chats">
                         <!-- user chats here -->
                     </div>
-                
-                    <!-- USER 2 =============================  -->
-                    
-
-                    <!-- <a href="textarea.php">
-                        <div class="users d-flex mt-2 d-flex align-items-center">
-                            <!-- PROFILE PICTURE 
-                            <div class="col-3 profile-pic">
-                                <img src="nyanchat1.jpeg" alt="nyanchat">
-                            </div>
-                            <!-- PROFILE NAME
-                            <div class="col-8">
-                                <p class="fs-5 text-light mb-0">
-                                    Nyan Msg
-                                </p>
-                                <p class="text-light mb-0">
-                                    You: Sent message
-                                </p>
-                            </div>
-                            
-                            <!-- ACTIVE STATUS 
-                            <div class="col-2 d-flex justify-content-center">
-                                <!-- DEFAULT COLOR IS FOR OFFLINE STATUS
-                                <i class="fa-solid fa-circle"></i>
-                            </div>
-                            
-                        </div>
-                    </a> -->
-                    
-                    
                 </div>
-                
             </div>
-            
         </div>
-         
     </div>
     
     <script src="js/script.js"></script>

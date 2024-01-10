@@ -9,7 +9,7 @@ if(isset($_POST['receiverId'])) {
 
     $connect = DB::connect();
 
-    $sql = $connect->prepare("INSERT INTO message (sender_id, receiver_id, message) VALUES (?,?,?)");
+    $sql = $connect->prepare("INSERT INTO messages (sender_id, receiver_id, message) VALUES (?,?,?)");
     $sql->bind_param('iis', $senderId, $receiverId, $message);
     
     if(!$sql->execute()) {

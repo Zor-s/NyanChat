@@ -70,22 +70,7 @@ if(isset($_GET['receiverId'])) {
                 <div class="interface">
                    
                 <div class="chat-box">
-                    <!-- <div class="d-flex justify-content-end">
-                        <div class="user1 d-flex justify-content-end align-items-center">
-                            <p class="text-light mt-3">
-                                Hello! Welcome to Nyan Chat. How can I assist you today?
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="user2 d-flex justify-content-start align-items-end">
-                        <img src="nyanchat1.jpeg" alt="nyanchat">
-                        &nbsp;
-                        &nbsp;
-                        <p class="text-light mt-3">
-                            Hi! I want some Tea.
-                        </p>
-                    </div>      -->
+
                 </div>
             </div>
 

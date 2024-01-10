@@ -1,16 +1,11 @@
 <?php
-require '../db/database.php';
+session_start();
+require_once '../db/database.php';
 
 $connect = DB::connect();
 
-
-
 $username = $_POST['username'];
 $password = $_POST['password'];
-
-
-
-
 
 $username = validateUsername($username);
 $password = validatePassword($password);
@@ -27,13 +22,19 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $hash = $row['password'];
+
     if (password_verify($password, $hash)) {
-        echo '<br>' . 'eyyy';
+
+        $sql = "UPDATE users SET user_status = 'Online' WHERE user_id = {$row['user_id']};";
+        $connect->query($sql);
+
+        $_SESSION['id'] = $row['user_id'];
+        header('location: ../frontend/dashboard.php');
     }else {
-        echo '<br>' . 'wrong pass';
+        header('location: ../frontend/login.php');
     }
 } else {
-    echo '<br>' . 'wrong pass';
+    header('location: ../frontend/login.php');
 }
 
 

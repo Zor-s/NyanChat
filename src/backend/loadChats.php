@@ -7,20 +7,20 @@ if(isset($_POST['receiverId'])) {
 
     $connect = DB::connect();
 
-    $sql = $connect->prepare("SELECT * FROM message WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)");
+    $sql = $connect->prepare("SELECT * FROM messages WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)");
     $sql->bind_param('iiii',  $senderId, $receiverId, $receiverId, $senderId);
     $sql->execute();
     $result = $sql->get_result();
-    
-    $out = '';
 
     if($result->num_rows > 0) {
+        $out = '';
+        
         while($row = $result->fetch_assoc()) {
             $sender = $row['sender_id'];
             $receiver = $row['receiver_id'];
             $message = $row['message'];
 
-            if($sender == $senderId) {
+            if($senderId == $sender) {
                 $out .= "<div class='d-flex justify-content-end'>
                     <div class='user1 d-flex justify-content-end align-items-center'>
                         <p class='text-light mt-3 px-3'>
@@ -29,7 +29,7 @@ if(isset($_POST['receiverId'])) {
                     </div>
                 </div>";
             } 
-            else if($sender == $receiver) {
+            else {
                 $out .= " <div class='user2 d-flex justify-content-start align-items-end'>
                     <img src='nyanchat1.jpeg' alt='nyanchat'>
                     &nbsp;
@@ -41,7 +41,7 @@ if(isset($_POST['receiverId'])) {
             }
         }
     } else {
-        $out = "<div class='mt-3 text-center text-white'>Send message now</div>";
+        $out .= "<div class='mt-3 text-center text-white'>Send message now</div>";
     }
 
     echo $out;
