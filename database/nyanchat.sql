@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `message`
+-- Table structure for table `messages`
 --
 
-CREATE TABLE `message` (
+CREATE TABLE `messages` (
   `msg_id` bigint(20) NOT NULL,
   `sender_id` bigint(20) NOT NULL,
   `receiver_id` bigint(20) NOT NULL,
@@ -56,9 +56,9 @@ CREATE TABLE `users` (
 --
 -- Indexes for table `message`
 --
-ALTER TABLE `message`
+ALTER TABLE `messages`
   ADD PRIMARY KEY (`msg_id`),
-  ADD KEY `users to message table` (`sender_id`) USING BTREE,
+  ADD KEY `users to messages table` (`sender_id`) USING BTREE,
   ADD KEY `user_id to receiver_id` (`receiver_id`);
 
 --
@@ -74,7 +74,7 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for table `message`
 --
-ALTER TABLE `message`
+ALTER TABLE `messages`
   MODIFY `msg_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
@@ -88,9 +88,9 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `message`
+-- Constraints for table `messages`
 --
-ALTER TABLE `message`
+ALTER TABLE `messages`
   ADD CONSTRAINT `user_id to receiver_id` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `user_id to sender_id` FOREIGN KEY (`sender_id`) REFERENCES `users` (`user_id`);
 COMMIT;
