@@ -41,6 +41,13 @@
 
         }
 
+        @media screen and (max-width: 329px) {
+            .login-form {
+                width: 230px;
+            }
+        }
+
+
         img[alt="nyanchat"] {
             position: relative;
             left: 25%;
@@ -115,6 +122,11 @@
             transform: translate(-50%, -50%) scale(1.2);
             z-index: 3;
             width: 350px;
+        }
+        @media screen and (max-width: 329px) {
+            .modal-box {
+                width: 230px;
+            }
         }
 
         .conts.active .overlay {
