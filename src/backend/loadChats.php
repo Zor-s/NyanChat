@@ -41,6 +41,7 @@ if(isset($_POST['receiverId'])) {
             }
         }
     } else {
+        $out = '';
         $out .= "<div class='mt-3 text-center text-white'>Send message now</div>";
     }
 
