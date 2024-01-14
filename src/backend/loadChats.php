@@ -20,6 +20,8 @@ if(isset($_POST['receiverId'])) {
             $receiver = $row['receiver_id'];
             $message = $row['message'];
 
+
+            $message = wordwrap($message, 30, "<br />", true);
             if($senderId == $sender) {
                 $out .= "<div class='d-flex justify-content-end'>
                     <div class='user1 d-flex justify-content-end align-items-center'>
