@@ -33,10 +33,11 @@ if (isset($_SESSION['id'])) {
 
             header('location: ../frontend/dashboard.php');
         } else {
-            header('location: ../frontend/login.php');
+            header('location: ../frontend/login.php?error=1');
         }
     } else {
-        header('location: ../frontend/login.php');
+        header('location: ../frontend/login.php?error=1');
+
     }
 
 

@@ -123,6 +123,7 @@
             z-index: 3;
             width: 350px;
         }
+
         @media screen and (max-width: 329px) {
             .modal-box {
                 width: 230px;
@@ -269,6 +270,26 @@
         </div>
     </div>
 
+
+
+    <!-- Error modal -->
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">An error occurred!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger"><strong>Error!</strong> Invalid username or password. Please try again.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const conts = document.querySelector('.conts'),
             overlay = document.querySelector('.overlay'),
@@ -279,6 +300,15 @@
         overlay.addEventListener("click", () => conts.classList.add('active'));
         closeBtn.addEventListener("click", () =>
             conts.classList.remove('active'));
+
+
+        function showErrorModal() {
+            var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+            errorModal.show();
+        }
+        if (window.location.search.indexOf('error=1') != -1) {
+    showErrorModal();
+}
     </script>
 
 </body>
