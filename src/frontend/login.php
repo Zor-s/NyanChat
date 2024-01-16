@@ -157,7 +157,7 @@
     </style>
 </head>
 
-<body>
+<body onload="onLoadModal()">
 
     <div class="top"></div>
     <div class="container d-grid justify-content-center">
@@ -322,7 +322,7 @@
                         *At least 8 characters long <br>
                         *at least one lowercase letter <br>
                         *at least one uppercase letter <br>
-                        *at least one digit 
+                        *at least one digit
 
                     </p>
                 </div>
@@ -335,8 +335,8 @@
 
 
 
-        <!-- signup email error modal -->
-        <div class="modal fade" id="errorModal4" tabindex="-1" aria-labelledby="errorModalLabel4" aria-hidden="true">
+    <!-- signup email error modal -->
+    <div class="modal fade" id="errorModal4" tabindex="-1" aria-labelledby="errorModalLabel4" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -345,6 +345,65 @@
                 </div>
                 <div class="modal-body">
                     <p class="text-danger"><strong>Error!</strong> Please enter a valid email address </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- on load modal -->
+    <div class="modal fade" id="onLoadModal" tabindex="-1" aria-labelledby="onLoadModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="onLoadModalLabel">🔐 Important Security Notice 🔐</h5>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">
+
+
+
+                        Hey everyone, <br><br>
+
+                        We're reaching out because your safety is our top priority. While NyanChat is meant to be a
+                        fun way to connect, we are unsure about its security risk. To keep your
+                        information safe, we strongly encourage you to:<br><br>
+
+                        ❌ NOT use your real email addresses, usernames, or passwords on the app.<br><br>
+
+                        ** Instead:**<br><br>
+
+                        -> Create a unique username and password specifically for NyanChat. Don't reuse login
+                        credentials from other platforms.<br><br>
+                        -> Consider using a pseudonym or nickname instead of your real name.<br><br>
+                        Here's why this is important:<br><br>
+
+                        -> Hackers can target apps to steal user information. By using non-identifiable information, you
+                        make it harder for them to connect your online activity to your real-life identity.<br><br>
+                        Data breaches happen. In the unlikely event of a breach, protecting your real credentials keeps
+                        your other accounts safe.<br><br>
+                        We understand this might sound inconvenient, but your safety is worth it. By taking these simple
+                        precautions, you can continue to enjoy NyanChat while minimizing the risk of your information
+                        being compromised.<br><br>
+
+                        Additional tips for staying safe:<br><br>
+
+                        -> Be cautious about what information you share on the app.<br>
+                        -> Don't share personal details like your address or phone number.<br>
+                        -> Be wary of suspicious links or requests from other users.<br>
+                        -> Report any suspicious behavior to us immediately.<br><br>
+                        We appreciate your understanding and cooperation in making NyanChat a safe and enjoyable
+                        experience for everyone.<br><br>
+
+                        Thank you,<br>
+
+                        The NyanChat Team 😺
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -399,6 +458,16 @@
         }
         if (window.location.search.indexOf('signupError=3') != -1) {
             showErrorModal4();
+        }
+
+
+        function onLoadModal() {
+            var onLoadModal = new bootstrap.Modal(document.getElementById('onLoadModal'));
+
+            if (window.location.search.indexOf('error=1') == -1 && window.location.search.indexOf('signupError=1') == -1&& window.location.search.indexOf('signupError=2') == -1&& window.location.search.indexOf('signupError=3') == -1) {
+                onLoadModal.show();
+            }
+            
         }
     </script>
 
