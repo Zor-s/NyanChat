@@ -170,7 +170,7 @@
                 <!-- USERNAME -->
                 <div class="form-floating mb-3 input-field">
                     <input type="text" name="username" class="form-control" id="floatingInput"
-                        placeholder="name@example.com">
+                        placeholder="name@example.com" required>
                     <label for="floatingInput">
                         <i class="fa-solid fa-user"></i>
                         &nbsp;
@@ -181,7 +181,7 @@
                 <!-- PASSWORD -->
                 <div class="form-floating mb-3 input-field">
                     <input type="password" name="password" class="form-control" id="floatingPassword"
-                        placeholder="Password">
+                        placeholder="Password" required>
                     <label for="floatingPassword">
                         <i class="fa-solid fa-key"></i>
                         &nbsp;
@@ -227,7 +227,7 @@
                         <!-- EMAIL -->
                         <div class="form-floating mb-3 input-field">
                             <input type="email" name="email" class="form-control" id="floatingInput"
-                                placeholder="name@example.com">
+                                placeholder="name@example.com" required>
                             <label for="floatingInput">
                                 <i class="fa-solid fa-at"></i>
                                 &nbsp;
@@ -238,7 +238,7 @@
                         <!-- USERNAME -->
                         <div class="form-floating mb-3 input-field">
                             <input type="text" name="username" class="form-control" id="floatingInput"
-                                placeholder="name@example.com">
+                                placeholder="name@example.com" required>
                             <label for="floatingInput">
                                 <i class="fa-solid fa-user"></i>
                                 &nbsp;
@@ -249,7 +249,7 @@
                         <!-- PASSWORD -->
                         <div class="form-floating mb-3 input-field">
                             <input type="password" name="password" class="form-control" id="floatingPassword"
-                                placeholder="Password">
+                                placeholder="Password" required>
                             <label for="floatingPassword">
                                 <i class="fa-solid fa-key"></i>
                                 &nbsp;
@@ -272,7 +272,7 @@
 
 
 
-    <!-- Error modal -->
+    <!-- login error modal -->
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -291,8 +291,8 @@
     </div>
 
 
-        <!-- Error modal -->
-        <div class="modal fade" id="errorModal2" tabindex="-1" aria-labelledby="errorModalLabel2" aria-hidden="true">
+    <!-- signup username error modal -->
+    <div class="modal fade" id="errorModal2" tabindex="-1" aria-labelledby="errorModalLabel2" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -301,6 +301,50 @@
                 </div>
                 <div class="modal-body">
                     <p class="text-danger"><strong>Error!</strong> Username is already taken.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- signup password error modal -->
+    <div class="modal fade" id="errorModal3" tabindex="-1" aria-labelledby="errorModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel3">An error occurred!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger"><strong>Error!</strong> Password must contain a combination of <br>
+                        *At least 8 characters long <br>
+                        *at least one lowercase letter <br>
+                        *at least one uppercase letter <br>
+                        *at least one digit 
+
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        <!-- signup email error modal -->
+        <div class="modal fade" id="errorModal4" tabindex="-1" aria-labelledby="errorModalLabel4" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel4">An error occurred!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger"><strong>Error!</strong> Please enter a valid email address </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -336,6 +380,25 @@
         }
         if (window.location.search.indexOf('signupError=1') != -1) {
             showErrorModal2();
+        }
+
+
+        function showErrorModal3() {
+            var errorModal3 = new bootstrap.Modal(document.getElementById('errorModal3'));
+            errorModal3.show();
+        }
+        if (window.location.search.indexOf('signupError=2') != -1) {
+            showErrorModal3();
+        }
+
+
+
+        function showErrorModal4() {
+            var errorModal4 = new bootstrap.Modal(document.getElementById('errorModal4'));
+            errorModal4.show();
+        }
+        if (window.location.search.indexOf('signupError=3') != -1) {
+            showErrorModal4();
         }
     </script>
 

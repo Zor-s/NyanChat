@@ -16,9 +16,9 @@ echo '<br>';
 if (!validateUsername($username)) {
     header('location: ../frontend/login.php?signupError=1');
 } elseif (!validatePassword($password)) {
-    echo 'error!';
+    header('location: ../frontend/login.php?signupError=2');
 } elseif (!validateEmail($email)) {
-    echo 'error!';
+    header('location: ../frontend/login.php?signupError=3');
 } else {
     $username = validateUsername($username);
     $email = validateEmail($email);
