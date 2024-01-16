@@ -171,7 +171,7 @@ require_once '../backend/sessionCheck.php';
             <div class="dash-header row d-flex mt-3 align-items-center">
                 <div class="col-3">
                     <!-- PROFILE PICTURE-->
-                    <img src="nyanchat1.jpeg" alt="nyanchat">
+                    <img src="nyanchat2.jpg" alt="nyanchat">
                 </div>
 
                 <div class="col-6 d-grid">
