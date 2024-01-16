@@ -33,7 +33,7 @@ if(isset($_POST['receiverId'])) {
             } 
             else {
                 $out .= " <div class='user2 d-flex justify-content-start align-items-end'>
-                    <img src='nyanchat1.jpeg' alt='nyanchat'>
+                    <img src='nyan1.jpeg' alt='nyanchat'>
                     &nbsp;
                     &nbsp;
                     <p class='text-light mt-3'>

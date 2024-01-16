@@ -55,7 +55,7 @@ if (isset($_GET['receiverId'])) {
 
                 <div class="col-3" style="width: 60px">
                     <!-- PROFILE PICTURE-->
-                    <img src="nyanchat1.jpeg" style="width: 40px; height:40px; border-radius: 50%">
+                    <img src="nyan1.jpeg" style="width: 40px; height:40px; border-radius: 50%">
                 </div>
 
                 <div class="col-6 d-grid">

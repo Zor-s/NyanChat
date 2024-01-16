@@ -162,7 +162,7 @@
     <div class="top"></div>
     <div class="container d-grid justify-content-center">
         <div class="login-form d-grid justify-content-center align-items-center">
-            <img src="nyanchat.png" alt="nyanchat">
+            <img src="nyan.png" alt="nyanchat">
 
             <!-- LOGIN FORM -->
             <form action="../backend/login.php" method="post">

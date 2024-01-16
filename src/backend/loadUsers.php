@@ -22,10 +22,10 @@ if($results = $connect->query($sql)) {
 
             $color = ($status == 'Online')? '#00c100' : '#808080';
     
-            $output .= "<a href='chatarea.php?receiverId={$id}'>
+            $output .= "<a href='messagearea.php?receiverId={$id}'>
                             <div class='users d-flex mt-3 d-flex align-items-center'>
                                 <div class='col-3 profile-pic'>
-                                    <img src='nyanchat1.jpeg' alt='nyanchat'>
+                                    <img src='nyan1.jpeg' alt='nyanchat'>
                                 </div>
 
                                 <div class='col-8'>

@@ -53,7 +53,7 @@ if (sendBtn) {
 
     let xhr2 = new XMLHttpRequest();
 
-    xhr2.open("POST", "../backend/loadChats.php", true);
+    xhr2.open("POST", "../backend/loadMessages.php", true);
 
     xhr2.onload = function () {
       if (this.status == 200) {
@@ -91,7 +91,7 @@ if (chatBox) {
   setInterval(() => {
     let xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "../backend/loadChats.php", true);
+    xhr.open("POST", "../backend/loadMessages.php", true);
 
     xhr.onload = function () {
       if (this.status == 200) {
