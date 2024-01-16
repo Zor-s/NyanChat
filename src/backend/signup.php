@@ -14,7 +14,7 @@ echo '<br>';
 
 
 if (!validateUsername($username)) {
-    echo 'error!';
+    header('location: ../frontend/login.php?signupError=1');
 } elseif (!validatePassword($password)) {
     echo 'error!';
 } elseif (!validateEmail($email)) {
@@ -46,7 +46,7 @@ if (!validateUsername($username)) {
     $row = $out->fetch_assoc();
 
     $_SESSION['id'] = $row['user_id'];
-    
+
     header('location: ../frontend/dashboard.php');
     // Close prepared statement and database connection
     $stmt->close();
@@ -60,9 +60,33 @@ if (!validateUsername($username)) {
 // Validate and sanitize username
 function validateUsername($username)
 {
+
+
     $username = filter_var($username, FILTER_SANITIZE_STRING);
     if (preg_match("/^[a-zA-Z0-9]+$/", $username)) {
-        return $username;
+
+        $connect = DB::connect();
+
+
+        $stmt = $connect->prepare("SELECT EXISTS(SELECT 1 FROM users WHERE username = ?)");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $exists = $result->fetch_row()[0]; // Fetch the boolean result
+        $stmt->close();
+        $connect->close();
+        if ($exists) {
+            // echo "Username already exists";
+            return false;
+        } else {
+            // echo "Username is available";
+            return $username;
+        }
+
+
+
+
+
     } else {
         return false;
     }

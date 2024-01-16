@@ -290,6 +290,25 @@
         </div>
     </div>
 
+
+        <!-- Error modal -->
+        <div class="modal fade" id="errorModal2" tabindex="-1" aria-labelledby="errorModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel2">An error occurred!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger"><strong>Error!</strong> Username is already taken.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const conts = document.querySelector('.conts'),
             overlay = document.querySelector('.overlay'),
@@ -307,8 +326,17 @@
             errorModal.show();
         }
         if (window.location.search.indexOf('error=1') != -1) {
-    showErrorModal();
-}
+            showErrorModal();
+        }
+
+
+        function showErrorModal2() {
+            var errorModal2 = new bootstrap.Modal(document.getElementById('errorModal2'));
+            errorModal2.show();
+        }
+        if (window.location.search.indexOf('signupError=1') != -1) {
+            showErrorModal2();
+        }
     </script>
 
 </body>
