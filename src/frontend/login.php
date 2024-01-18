@@ -197,6 +197,11 @@
                 </div>
             </form>
 
+            <!-- FORGOT  PASSWORD ===============-->
+            <a href="forgotpass.php" class="text-center">
+                <p>Forgot Password?</p>
+            </a>
+
             <span class="mb-3 break-line"></span>
             <p class="text-light text-center">Don't have an account?</p>
 
