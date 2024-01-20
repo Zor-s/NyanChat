@@ -190,7 +190,7 @@
                 </div>
 
                 <!-- SUBMIT BUTTON-->
-                <div class="mb-4 submit-button">
+                <div class="mb-3 submit-button">
                     <button class="btn btn-primary" name="login">
                         Login
                     </button>
@@ -202,8 +202,8 @@
                 <p>Forgot Password?</p>
             </a>
 
-            <span class="mb-3 break-line"></span>
-            <p class="text-light text-center">Don't have an account?</p>
+            <span class="mb-4 break-line"></span>
+   
 
             <!-- SIGN-UP BUTTON / SHOW MODAL-->
             <div class="mb-5 conts register-button">
